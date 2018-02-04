@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 
 class Invitee extends Controller
 {
-    public function search(Request $request) {
-        return InviteeModel::search($request->get('query'))->get([
-            'id',
-            'name',
-        ]);
+    public function get(Request $request) {
+        return InviteeModel::search($request->get('query'))->get();
     }
 }

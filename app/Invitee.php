@@ -33,4 +33,12 @@ class Invitee extends Model
     public function invite() {
         return $this->belongsTo(Invite::class);
     }
+
+    public function toArray() {
+        return [
+          'id' => $this->id,
+          'invite_id' => $this->invite_id,
+          'name' => $this->name,
+        ];
+    }
 }

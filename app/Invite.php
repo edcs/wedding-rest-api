@@ -12,4 +12,16 @@ class Invite extends Model
     public function invitees() {
         return $this->hasMany(Invitee::class);
     }
+
+    /**
+     * Convert the model instance to an array.
+     *
+     * @return array
+     */
+    public function toArray() {
+        return [
+            'id' => $this->id,
+            'invitees' => $this->invitees,
+        ];
+    }
 }

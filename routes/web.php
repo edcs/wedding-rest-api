@@ -12,4 +12,5 @@
 */
 
 $router->get('/', ['uses' => 'Controller@index']);
-$router->get('/invitees', ['uses' => 'Invitee@search']);
+$router->get('/invites/{id}', ['uses' => 'Invite@get']);
+$router->get('/invitees', ['uses' => 'Invitee@get']);
