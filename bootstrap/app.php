@@ -24,8 +24,7 @@ $app = new Laravel\Lumen\Application(
 );
 
 // $app->withFacades();
-
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +78,7 @@ $app->singleton(
 */
 
 $app->register(\App\Providers\CommandServiceProvider::class);
+$app->register(Sofa\Eloquence\BaseServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------

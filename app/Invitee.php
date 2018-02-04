@@ -1,9 +1,12 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Sofa\Eloquence\Eloquence;
 
 class Invitee extends Model
 {
+    use Eloquence;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -14,6 +17,13 @@ class Invitee extends Model
         'main_course',
         'dessert_course',
     ];
+
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
+    protected $searchableColumns = ['name'];
 
     /**
      * The invite that this invitee belongs to.
