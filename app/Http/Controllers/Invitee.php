@@ -12,11 +12,15 @@ class Invitee extends Controller
             ::search($request->get('query'))
             ->get()
             ->map(function ($invitee) {
+                if ($invitee->invite->accepted !== null) {
+                    return [];
+                }
+
                 return array_merge($invitee->toArray(), [
-                    'invite' => $invitee->invite,
+                    'invite' => $invitee->invite->toArray(),
                 ]);
             });
 
-        return $invitees;
+        return array_filter($invitees->toArray());
     }
 }
