@@ -15,6 +15,8 @@ $router->get('/', ['uses' => 'Controller@index']);
 
 $router->get('/invites/{id}', ['uses' => 'Invite@get']);
 
+$router->post('/invites/{id}/accept', ['uses' => 'Invite@accept']);
+
 $router->post('/invites/{id}/decline', ['uses' => 'Invite@decline']);
 
 $router->get('/invitees', ['uses' => 'Invitee@get']);

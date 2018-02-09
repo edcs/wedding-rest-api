@@ -15,8 +15,10 @@ class Invitee extends Model
      */
     protected $fillable = [
         'name',
+        'drinks',
         'main_course',
         'dessert_course',
+        'dietary_requirements',
     ];
 
     /**
