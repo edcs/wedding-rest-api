@@ -17,8 +17,10 @@ class Invitees extends Migration
             $table->increments('id');
             $table->integer('invite_id')->unsigned();
             $table->string('name');
+            $table->string('dietary_requirements');
             $table->string('main_course');
             $table->string('dessert_course');
+            $table->json('drinks');
             $table->timestamps();
 
             $table->foreign('invite_id')

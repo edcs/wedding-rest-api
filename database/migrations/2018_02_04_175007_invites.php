@@ -15,6 +15,8 @@ class Invites extends Migration
     {
         Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('accepted');
+            $table->text('notes');
             $table->timestamps();
         });
     }
