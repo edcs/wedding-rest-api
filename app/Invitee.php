@@ -1,11 +1,12 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Sofa\Eloquence\Eloquence;
 
 class Invitee extends Model
 {
-    use Eloquence;
+    use Eloquence, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

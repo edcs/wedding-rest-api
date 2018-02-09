@@ -16,12 +16,13 @@ class Invitees extends Migration
         Schema::create('invitees', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('invite_id')->unsigned();
-            $table->string('name');
-            $table->string('dietary_requirements');
-            $table->string('main_course');
-            $table->string('dessert_course');
-            $table->json('drinks');
+            $table->string('name')->nullable();
+            $table->string('dietary_requirements')->nullable();
+            $table->string('main_course')->nullable();
+            $table->string('dessert_course')->nullable();
+            $table->json('drinks')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('invite_id')
                   ->references('id')
