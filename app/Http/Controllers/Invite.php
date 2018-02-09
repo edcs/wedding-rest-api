@@ -14,7 +14,7 @@ class Invite extends Controller
     public function accept($id, Request $request) {
         $invite = InviteModel::findOrFail($id);
 
-        foreach ($request->all() as $id => $response) {
+        foreach ($request->get('invitees') as $id => $response) {
             $invite->invitees()->findOrFail($id)->update([
                 'name' => $response['name'],
                 'main_course' => $response['main'],
@@ -24,7 +24,10 @@ class Invite extends Controller
             ]);
         }
 
-        $invite->update(['accepted' => true]);
+        $invite->update([
+            'accepted' => true,
+            'transport' => $request->get('transport'),
+        ]);
 
         return [];
     }

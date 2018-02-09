@@ -28,8 +28,18 @@ class CreateInvites extends Command
     public function handle()
     {
         $reader = Reader::createFromPath(resource_path('data/wedding-guest-list-ed.csv'));
-        $records = $reader->getRecords();
+        $this->parseInvites($reader->getRecords());
 
+        $reader = Reader::createFromPath(resource_path('data/wedding-guest-list-sam.csv'));
+        $this->parseInvites($reader->getRecords());
+    }
+
+    /**
+     * Parse each row of the CSV file and save it to the database.
+     *
+     * @param array $records
+     */
+    private function parseInvites($records) {
         foreach ($records as $offset => $record) {
             if ($record[3] === 'Day') {
                 $invite = new Invite();

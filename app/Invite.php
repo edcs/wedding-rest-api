@@ -15,6 +15,7 @@ class Invite extends Model
     protected $fillable = [
         'accepted',
         'notes',
+        'transport',
     ];
 
     /**

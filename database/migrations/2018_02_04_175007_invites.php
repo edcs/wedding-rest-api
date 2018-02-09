@@ -17,6 +17,7 @@ class Invites extends Migration
             $table->increments('id');
             $table->boolean('accepted')->nullable();
             $table->text('notes')->nullable();
+            $table->text('transport')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
