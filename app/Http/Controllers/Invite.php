@@ -19,6 +19,7 @@ class Invite extends Controller
                 'name' => $response['name'],
                 'main_course' => $response['main'],
                 'dessert_course' => $response['dessert'],
+                'favourite_drink' => $response['favouriteDrink'],
                 'dietary_requirements' => $response['dietaryRequirements'],
             ]);
         }

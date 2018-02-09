@@ -20,13 +20,11 @@ class Invitees extends Migration
             $table->string('dietary_requirements')->nullable();
             $table->string('main_course')->nullable();
             $table->string('dessert_course')->nullable();
-            $table->json('drinks')->nullable();
+            $table->string('favourite_drink')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('invite_id')
-                  ->references('id')
-                  ->on('invites');
+            $table->foreign('invite_id')->references('id')->on('invites');
         });
     }
 

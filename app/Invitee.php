@@ -18,6 +18,7 @@ class Invitee extends Model
         'drinks',
         'main_course',
         'dessert_course',
+        'favourite_drink',
         'dietary_requirements',
     ];
 
