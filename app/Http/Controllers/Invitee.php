@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 class Invitee extends Controller
 {
     public function get(Request $request) {
-        return InviteeModel::search($request->get('query'))->get();
+        $invitees = InviteeModel
+            ::search($request->get('query'))
+            ->get()
+            ->map(function ($invitee) {
+                return array_merge($invitee->toArray(), [
+                    'invite' => $invitee->invite,
+                ]);
+            });
+
+        return $invitees;
     }
 }
