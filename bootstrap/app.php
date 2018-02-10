@@ -23,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     realpath(__DIR__.'/../')
 );
 
-// $app->withFacades();
+$app->withFacades();
 $app->withEloquent();
 
 /*
@@ -76,6 +76,7 @@ $app->middleware([
 $app->register(\App\Providers\CommandServiceProvider::class);
 $app->register(\App\Providers\CommandServiceProvider::class);
 $app->register(Sofa\Eloquence\BaseServiceProvider::class);
+$app->register(Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
