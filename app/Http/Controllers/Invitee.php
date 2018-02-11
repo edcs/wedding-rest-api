@@ -21,6 +21,6 @@ class Invitee extends Controller
                 ]);
             });
 
-        return array_filter($invitees->toArray());
+        return array_values(array_filter($invitees->toArray()));
     }
 }
