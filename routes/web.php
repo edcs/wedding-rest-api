@@ -20,3 +20,17 @@ $router->post('/invites/{id}/accept', ['uses' => 'Invite@accept']);
 $router->post('/invites/{id}/decline', ['uses' => 'Invite@decline']);
 
 $router->get('/invitees', ['uses' => 'Invitee@get']);
+
+$router->get('/ogPipe.aspx', function () {
+    $r = new \Illuminate\Http\Response();
+    $r->setStatusCode(418);
+    $r->setContent(['I\'m a teapot']);
+    return $r;
+});
+
+$router->get('/ogShow.aspx', function () {
+    $r = new \Illuminate\Http\Response();
+    $r->setStatusCode(418);
+    $r->setContent(['I\'m a teapot']);
+    return $r;
+});
