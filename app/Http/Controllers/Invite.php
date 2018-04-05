@@ -16,11 +16,11 @@ class Invite extends Controller
 
         foreach ($request->get('invitees') as $id => $response) {
             $invite->invitees()->findOrFail($id)->update([
-                'name' => $response['name'],
-                'main_course' => $response['main'],
-                'dessert_course' => $response['dessert'],
-                'favourite_drink' => $response['favouriteDrink'],
-                'dietary_requirements' => $response['dietaryRequirements'],
+                'name' => array_get($response, 'name'),
+                'main_course' => array_get($response, 'main'),
+                'dessert_course' => array_get($response, 'dessert'),
+                'favourite_drink' => array_get($response, 'favouriteDrink'),
+                'dietary_requirements' => array_get($response, 'dietaryRequirements'),
             ]);
         }
 

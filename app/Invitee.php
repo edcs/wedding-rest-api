@@ -40,9 +40,10 @@ class Invitee extends Model
 
     public function toArray() {
         return [
-          'id' => $this->id,
-          'invite_id' => $this->invite_id,
-          'name' => $this->name,
+            'id' => $this->id,
+            'invite_id' => $this->invite_id,
+            'invite_class' => $this->invite->invite_class,
+            'name' => $this->name,
         ];
     }
 }
