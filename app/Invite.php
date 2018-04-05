@@ -36,6 +36,7 @@ class Invite extends Model
         return [
             'id' => $this->id,
             'invitees' => $this->invitees,
+            'invite_class' => $this->invite_class,
         ];
     }
 }
