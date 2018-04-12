@@ -42,7 +42,15 @@ class CreateInvites extends Command
     private function parseInvites($records) {
         foreach ($records as $offset => $record) {
             if ($record[3] === 'Day') {
-                $invite = new Invite();
+                $invite = new Invite(['invite_class' => 'daytime']);
+                $invite->save();
+
+                foreach (array_filter([$record[0], $record[1], $record[2]]) as $invitee) {
+                    $invite->invitees()->create(['name' => $invitee]);
+                }
+            }
+            if ($record[3] === 'Evening') {
+                $invite = new Invite(['invite_class' => 'evening']);
                 $invite->save();
 
                 foreach (array_filter([$record[0], $record[1], $record[2]]) as $invitee) {
